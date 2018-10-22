@@ -14,23 +14,33 @@ function redBoundary() {
 }
 
 /*Exercise 2*/
+
+//Works but only one boundary get coloured at a time
+/*function allBoundaries() {
+
+    const boundaries = document.querySelectorAll(".boundary");
+
+    for (let i = 0; i < boundaries.length; i++) {
+        boundaries[i].addEventListener("mouseover", function() {
+            boundaries[i].classList.add("youlose");
+        });
+    }
+}*/
+
 function allBoundaries() {
-    
-    var boundaries = document.querySelectorAll("boundary");
-    var i;
-    for (i = 0; i < boundaries.length; i++)
-    {
-        boundaries[i].onmouseover = allRedBoundary;
-        alert("What is going on?");
+
+    const boundaries = document.querySelectorAll(".boundary");
+
+    for (let i = 0; i < boundaries.length; i++) {
+        boundaries[i].addEventListener("mouseover", allRedBoundary);
     }
 }
 
 function allRedBoundary() {
-    var boundaries = document.querySelectorAll("boundary");
-    var i;
-    for (i = 0; i < boundaries.length; i++) {
+    const boundaries = document.querySelectorAll(".boundary");
+
+    for (let i = 0; i < boundaries.length; i++) {
         boundaries[i].classList.add("youlose");
-       // alert("All should be red?");
     }
 }
 
