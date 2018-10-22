@@ -1,7 +1,7 @@
 /*Exercise 1 */
 
 //var boundaries;
-
+var trackBoundary = false;
 window.onload = allBoundaries;
 
 function topLeftBoundary() {
@@ -28,7 +28,8 @@ function redBoundary() {
 }*/
 
 function allBoundaries() {
-
+    const end = document.getElementById("end");
+    end.onmouseover = messageAlert;
     const boundaries = document.querySelectorAll(".boundary");
 
     for (let i = 0; i < boundaries.length; i++) {
@@ -37,6 +38,7 @@ function allBoundaries() {
 }
 
 function allRedBoundary() {
+    trackBoundary = true;
     const boundaries = document.querySelectorAll(".boundary");
 
     for (let i = 0; i < boundaries.length; i++) {
@@ -46,7 +48,15 @@ function allRedBoundary() {
 
 /*Exercise 3*/
 
-
+function messageAlert() {
+    if (trackBoundary)
+    {
+        alert("You lose, mate!");
+    }
+    else{
+        alert("You win!");
+    } 
+}
 
 /*Exercise 4*/
 
