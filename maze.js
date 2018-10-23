@@ -31,12 +31,13 @@ function allBoundaries() {
     const end = document.getElementById("end");
     const start = document.getElementById("start");
     start.onclick = restartMaze;
-    end.onmouseover = messageAlert;
+    //end.onmouseover = messageAlert; /*Used for alert messages*/
     const boundaries = document.querySelectorAll(".boundary");
 
     for (let i = 0; i < boundaries.length; i++) {
         boundaries[i].addEventListener("mouseover", allRedBoundary);
     }
+    end.onmouseover = statusUpdates;
 }
 
 function allRedBoundary() {
@@ -46,6 +47,7 @@ function allRedBoundary() {
     for (let i = 0; i < boundaries.length; i++) {
         boundaries[i].classList.add("youlose");
     }
+    
 }
 
 /*Exercise 3*/
@@ -64,6 +66,7 @@ function messageAlert() {
 
 function restartMaze() {
     trackBoundary = false;
+    document.getElementById("status").innerHTML = 'Move your mouse over the "S" to begin.';
     const boundaries = document.querySelectorAll(".boundary");
 
     for (let i = 0; i < boundaries.length; i++) {
@@ -72,6 +75,18 @@ function restartMaze() {
 }
 
 /*Exercise 5*/
+
+function statusUpdates() {
+    if (trackBoundary) 
+    {
+        document.getElementById("status").innerHTML = "You lose, mate!";
+    }
+    else 
+    {
+        document.getElementById("status").innerHTML = "You win!";
+    }
+}
+
 
 /*Exercise 6*/
 
