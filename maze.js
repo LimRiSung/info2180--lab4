@@ -1,7 +1,7 @@
 /*Exercise 1 */
 
 //var tlboundary;
-var trackBoundary = false;
+var trackBoundary = false; //Variable used to track if the boundary has been hit
 window.onload = allBoundaries;
 //window.onload = topLeftBoundary;
 function topLeftBoundary() {
@@ -37,6 +37,7 @@ function allBoundaries() {
     for (let i = 0; i < boundaries.length; i++) {
         boundaries[i].addEventListener("mouseover", allRedBoundary);
     }
+    preventCheating(); //Call Function
     end.onmouseover = statusUpdates;
 }
 
@@ -52,7 +53,7 @@ function allRedBoundary() {
 
 /*Exercise 3*/
 
-function messageAlert() {
+function messageAlert() { //For alert messages
     if (trackBoundary)
     {
         alert("You lose, mate!");
@@ -87,6 +88,9 @@ function statusUpdates() {
     }
 }
 
-
 /*Exercise 6*/
 
+function preventCheating() {
+    var maze = document.getElementById("maze");
+    maze.onmouseleave = allRedBoundary;
+}
