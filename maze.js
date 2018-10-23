@@ -1,9 +1,9 @@
 /*Exercise 1 */
 
-//var boundaries;
+//var tlboundary;
 var trackBoundary = false;
 window.onload = allBoundaries;
-
+//window.onload = topLeftBoundary;
 function topLeftBoundary() {
    tlboundary = document.getElementById("boundary1");
    tlboundary.onmouseover = redBoundary;
@@ -29,6 +29,8 @@ function redBoundary() {
 
 function allBoundaries() {
     const end = document.getElementById("end");
+    const start = document.getElementById("start");
+    start.onclick = restartMaze;
     end.onmouseover = messageAlert;
     const boundaries = document.querySelectorAll(".boundary");
 
@@ -60,5 +62,16 @@ function messageAlert() {
 
 /*Exercise 4*/
 
+function restartMaze() {
+    trackBoundary = false;
+    const boundaries = document.querySelectorAll(".boundary");
+
+    for (let i = 0; i < boundaries.length; i++) {
+        boundaries[i].classList.remove("youlose");
+    }
+}
+
 /*Exercise 5*/
+
+/*Exercise 6*/
 
